@@ -1,1 +1,4 @@
-
+fastapi==0.98.0
+langchain==0.0.214
+pydantic==1.10.9
+uvicorn==0.22.0
