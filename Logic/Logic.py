@@ -5,7 +5,7 @@ from Scrape.Scrape import *
 from VectorDataBase.VectorDataBase import *
 from langchain.chains.qa_with_sources import load_qa_with_sources_chain
 from OpenAi.OpenAi import *
-
+import tiktoken
 
 class Logic:
     def __init__(self):
@@ -24,8 +24,28 @@ class Logic:
     def ask(self, question: str):
         embeddings = Embedding.get_embeddings()
         docs = VectorDataBase(embeddings=embeddings).similarity_search(question)
-        # te
-        documents = [docs[0]]
+        if len(docs) < 1:
+            return "no result"
+
+        # OpenAIChat currently only supports single prompt
+        # we need to joint related documents together
+        document = Document(page_content="")
+        documentSources = ""
+        for doc in docs:
+            document.page_content += doc.page_content + ","
+            documentSources += doc.metadata['source'] + ","
+        document.metadata = {"source": documentSources}
+
+        tokenizer = tiktoken.get_encoding("cl100k_base")
+        documentTokens = tokenizer.encode(document.page_content)
+
+        # gpt-3.5-turbo maximum token limit is 4,096 tokens
+        # 150 is langchain prompt tokens
+        if len(documentTokens) <= 4096 - 150:
+            documents = [document]
+        else:
+            documents = [docs[0]]
+
         openAi = OpenAi().get_openAi()
         chain = load_qa_with_sources_chain(openAi, chain_type="map_reduce",
                                            return_intermediate_steps=True)

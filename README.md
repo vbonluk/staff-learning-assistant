@@ -44,6 +44,30 @@ if you did not install pipreqs please run this:
 
 [Chain中文教程(javascript)](https://zhuanlan.zhihu.com/p/634313377)
 
+## Open AI
+
+### Token
+
+Tools:
+
+[tokenizer](https://platform.openai.com/tokenizer)
+
+Limit:
+
+[model token limit](https://platform.openai.com/docs/models/overview)
+
+    gpt-3.5-turbo	    4,096 tokens
+    gpt-3.5-turbo-16k	16,384 tokens
+
+Pricing:
+
+[token pricing](https://openai.com/pricing)
+
+    Model               Input                   Output
+    gpt-3.5-turbo	    $0.0015 / 1K tokens     $0.002 / 1K tokens
+    gpt-3.5-turbo-16k	$0.003 / 1K tokens      $0.004 / 1K tokens
+
+
 ## Restful API
 
 ### FastAPI
