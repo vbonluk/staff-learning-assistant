@@ -40,8 +40,8 @@ class Logic:
         documentTokens = tokenizer.encode(document.page_content)
 
         # gpt-3.5-turbo maximum token limit is 4,096 tokens
-        # 150 is langchain prompt tokens
-        if len(documentTokens) <= 4096 - 150:
+        # 200 is langchain prompt tokens
+        if len(documentTokens) <= 4096 - 200:
             documents = [document]
         else:
             documents = [docs[0]]
