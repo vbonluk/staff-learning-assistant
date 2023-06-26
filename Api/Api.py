@@ -1,5 +1,5 @@
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from Logic.Logic import *
 from Models.Models import *
 
@@ -14,6 +14,13 @@ def read_root():
 @app.post("/scrape/")
 def scrape(scrape_request_body: URLScrapeRequestBody):
     return Logic().url_scrape(scrape_request_body)
+
+
+@app.post("/scrapeDocument/")
+def scrape(files: List[UploadFile]):
+    if not files:
+        return "error"
+    return Logic().document_scrape(files=files)
 
 
 @app.post("/ask/", response_model=AskResponseBody)

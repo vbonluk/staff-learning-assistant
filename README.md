@@ -44,7 +44,6 @@ if you did not install pipreqs please run this:
 
 [Chain中文教程(javascript)](https://zhuanlan.zhihu.com/p/634313377)
 
-## Open AI
 
 ### Token
 
@@ -67,6 +66,7 @@ Pricing:
     gpt-3.5-turbo	    $0.0015 / 1K tokens     $0.002 / 1K tokens
     gpt-3.5-turbo-16k	$0.003 / 1K tokens      $0.004 / 1K tokens
 
+## Open AI
 
 ## Restful API
 
@@ -77,6 +77,11 @@ Pricing:
 [FastAPI QuickStart](https://zhuanlan.zhihu.com/p/624779536)
 
 [uvicorn](https://zhuanlan.zhihu.com/p/115237857)
+
+Upload Files:
+
+[FastApi upload multiple file](https://fastapi.tiangolo.com/tutorial/request-files/#multiple-file-uploads)
+[FastApi File path](https://self-methods.com/fastapi-file/)
 
 #### Swagger UI
 
