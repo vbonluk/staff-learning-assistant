@@ -1,7 +1,7 @@
 from langchain.document_loaders import SeleniumURLLoader
 from langchain.text_splitter import CharacterTextSplitter
 from typing import List
-from langchain.document_loaders import UnstructuredPDFLoader
+from langchain.document_loaders import UnstructuredFileLoader
 
 
 class Scrape:
@@ -35,7 +35,7 @@ class Scrape:
         return docs
 
     def scrape_document(self, file_path):
-        loader = UnstructuredPDFLoader(file_path)
+        loader = UnstructuredFileLoader(file_path)
         documents = loader.load()
 
         text_splitter = CharacterTextSplitter.from_tiktoken_encoder(

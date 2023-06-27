@@ -23,10 +23,10 @@ class Logic:
             path = f'files/{file.filename}'
             with open(path, 'w+b') as buffer:
                 shutil.copyfileobj(file.file, buffer)
-            if file.content_type == 'application/pdf':
-                documents = Scrape().scrape_document(path)
-                self.embedding_documents(documents=documents)
-                print(path)
+            # if file.content_type == 'application/pdf':
+            documents = Scrape().scrape_document(path)
+            self.embedding_documents(documents=documents)
+            print(path)
 
     def embedding_documents(self, documents: Document):
         for doc in documents:

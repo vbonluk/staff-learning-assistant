@@ -99,6 +99,19 @@ Upload Files:
 
 [pydantic](https://juejin.cn/post/7079027549896081421)
 
+### Unstructured
+
+[Unstructured解析文件](https://unstructured-io.github.io/unstructured/installing.html)
+
+[Langchain + Unstructured](https://python.langchain.com/docs/modules/data_connection/document_loaders/integrations/unstructured_file)
+
+#### libreoffice
+
+Unstructured 解析word, excel, ppt需要那使用libreoffice
+
+[Mac OS X](https://formulae.brew.sh/cask/libreoffice)
+
+
 # Vector Database
 
 [Milvus VS FAISS](https://www.libhunt.com/compare-milvus-vs-faiss)
@@ -212,3 +225,20 @@ Step:
         model_name="gpt-3.5-turbo"
     )
 
+## FileNotFoundError: soffice command was not found. Please install libreoffice
+
+    FileNotFoundError: soffice command was not found. Please install libreoffice
+
+Fix:
+    
+    需要安装libreoffice, 它是解析Micosoft的办公套件的工具
+
+    - Install instructions: https://www.libreoffice.org/get-help/install-howto/
+    - Mac: https://formulae.brew.sh/cask/libreoffice
+    - Debian: https://wiki.debian.org/LibreOffice
+
+Step:
+
+    Mac:
+    brew update
+    brew install --cask libreoffice
