@@ -134,6 +134,22 @@ Unstructured 解析word, excel, ppt需要那使用libreoffice
 
 [Langchain + FAISS](https://python.langchain.com/docs/modules/data_connection/vectorstores/integrations/faiss)
 
+[Langchain + FAISS](https://ict-worker.com/ai/gpt35-with-smeca.html)
+
+[FAISS + llama.cpp](https://hackernoon.com/a-practical-5-step-guide-to-do-semantic-search-on-your-private-data-with-the-help-of-llms)
+
+[FAISS 集群解说](https://zhuanlan.zhihu.com/p/320653340)
+
+[FAISS 集群](https://github.com/facebookresearch/faiss/blob/main/demos/demo_client_server_ivf.py)
+
+[FAISS Langchain 相似度兼容](https://blog.csdn.net/weixin_43913406/article/details/131215407)
+
+[FAISS remove index](https://github.com/facebookresearch/faiss/wiki/Special-operations-on-indexes#removing-elements-from-an-index)
+
+## AI FLow UML
+
+[FlowiseAi](https://flowiseai.com/?ref=hackernoon.com)
+
 # Error Fix
 
 ## unable to get local issuer certificate

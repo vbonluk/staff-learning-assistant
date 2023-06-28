@@ -7,6 +7,7 @@ MILVUS_HOST = "localhost"
 MILVUS_PORT = "19530"
 COLLECTON_NAME = "LangChainCollection"
 
+
 class VectorDataBase:
     def __init__(self, embeddings: Embeddings):
         self.embeddings = embeddings
@@ -14,9 +15,9 @@ class VectorDataBase:
             embedding_function=embeddings,
             collection_name=COLLECTON_NAME,
             connection_args={
-                        "host": MILVUS_HOST,
-                        "port": MILVUS_PORT
-                    },
+                "host": MILVUS_HOST,
+                "port": MILVUS_PORT
+            },
 
         )
 
@@ -36,6 +37,11 @@ class VectorDataBase:
         self.vector_db.add_documents(documents)
 
     def store_embeddings_with_azure(self, documents: List[Document]):
+        # will using self.embeddings to embedding texts
+        # then store texts to vector db
+        # will create vector db collection and field and index
+        # default index is HNSW
+
         # because azure openai only allow embedding one text every rpc call
         # so we need to for loop
         # ref: https://github.com/hwchase17/langchain/issues/4575

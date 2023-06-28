@@ -3,6 +3,7 @@ from OpenAi.Embedding import *
 from Models.Models import *
 from Scrape.Scrape import *
 from VectorDataBase.VectorDataBase import *
+from VectorDataBase.FAISSDatabase import *
 from langchain.chains.qa_with_sources import load_qa_with_sources_chain
 from fastapi import File, UploadFile
 from OpenAi.OpenAi import *
@@ -28,13 +29,14 @@ class Logic:
             self.embedding_documents(documents=documents)
             print(path)
 
-    def embedding_documents(self, documents: Document):
+    def embedding_documents(self, documents: List[Document]):
         for doc in documents:
             # Milvus db max varchar length is 65535
             if len(doc.page_content) > 65535:
                 return "error"
         embeddings = Embedding.get_embeddings()
-        VectorDataBase(embeddings=embeddings).store_embeddings_with_azure(documents=documents)
+        # VectorDataBase(embeddings=embeddings).store_embeddings_with_azure(documents=documents)
+        FAISSDatabase(embeddings=embeddings).store_embeddings_with_azure(documents=documents)
 
     def ask(self, question: str):
         embeddings = Embedding.get_embeddings()
